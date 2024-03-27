@@ -1,6 +1,6 @@
+package com.models;
 
 
 public class Movie {
- 
-    private Long id;
+    
 }
