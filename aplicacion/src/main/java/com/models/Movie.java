@@ -10,15 +10,20 @@ import jakarta.persistence.Table;
 @Entity // anotacion para indicar que se esta trabajando con una base de datos
 @Table(name = "movies") // se le indica a spring el nombre de la tabla de la base de datos
 public class Movie {
+    
+    //atributos de la clase 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // se indica que el id es autoincrementable
-    private long id;
+    private Long id;
     private String title;
     private int year;
     private int votes;
     private double rating;
-    @Column(name = "imag_url")
+    @Column(name = "imag_url")// se indica el nombre exacto que se encuentra en la base de datos 
     private String imagUrl;
+    
+
+    //getter and setter de cada uno de los atribitos 
     public long getId() {
         return id;
     }
@@ -55,7 +60,5 @@ public class Movie {
     public void setImagUrl(String imagUrl) {
         this.imagUrl = imagUrl;
     }
-
-    
 
 }
