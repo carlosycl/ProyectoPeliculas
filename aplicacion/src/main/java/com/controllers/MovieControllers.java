@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @RestController 
-@RequestMapping("api/movies")  
+@RequestMapping("/api/movies")  
 
 public class MovieControllers {
     
@@ -31,10 +32,10 @@ public class MovieControllers {
 
     @Autowired
     private MovieRepository movieRepository;
-
-    @GetMapping//  
+    @CrossOrigin
+    @GetMapping 
     public List<Movie> getAllMovie(){
-        return movieRepository.findAll();
+        return movieRepository.findAll  ();
     }
 
     /*metodo que devuelve una pelicula por medio de un id
@@ -48,8 +49,9 @@ public class MovieControllers {
        Aquí, se usa para devolver ResponseEntity.notFound().build(), lo que indica un estado HTTP 404 (no encontrado).
      */
     
+    @CrossOrigin
     @GetMapping("/{id}") 
-    //
+    
     public ResponseEntity<Movie> getMovieById( @PathVariable Long id){
         
         Optional<Movie> movie = movieRepository.findById(id);
